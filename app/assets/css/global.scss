@@ -1,0 +1,32 @@
+::-webkit-scrollbar {
+  background: #6b5602;
+  width: 11px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #6b5602;
+  border: 3px solid #323232ff;
+}
+
+::-webkit-scrollbar-track {
+  background: #323232ff;
+  border-radius: 0px;
+}
+
+body {
+  margin: 0;
+  background: #000000ff;
+  line-height: 1;
+}
+
+.owl-carousel::after {
+  content: "";
+  background: linear-gradient(270deg, rgb(0 0 0) 0%, rgba(27, 32, 51, 0) 100%);
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 10%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}

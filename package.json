@@ -1,0 +1,30 @@
+{
+  "name": "nuxt-app",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "@ant-design-vue/nuxt": "1.4.6",
+    "@nuxt/icon": "2.0.0",
+    "@nuxt/image": "1.11.0",
+    "@nuxtjs/i18n": "10.0.6",
+    "@vesp/nuxt-fontawesome": "2.0.0",
+    "ant-design-vue": ">=4",
+    "jquery": "^3.7.1",
+    "nuxt": "^4.1.1",
+    "owl.carousel": "^2.3.4",
+    "vue": "^3.5.20",
+    "vue-owl-carousel": "^2.0.3",
+    "vue-router": "^4.5.1"
+  },
+  "packageManager": "pnpm@9.12.1+sha512.e5a7e52a4183a02d5931057f7a0dbff9d5e9ce3161e33fa68ae392125b79282a8a8a470a51dfc8a0ed86221442eb2fb57019b0990ed24fab519bf0e1bc5ccfc4",
+  "devDependencies": {
+    "sass-embedded": "^1.92.1"
+  }
+}
