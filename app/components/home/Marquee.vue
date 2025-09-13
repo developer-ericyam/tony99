@@ -3,7 +3,7 @@
     <div v-if="title" class="fgtitle">
       <span>
         <ClientOnly>
-          <img class="icon" v-if="icon" :src="icon.href" alt="icon" />
+          <img class="icon" v-if="icon" :src="icon" alt="icon" />
         </ClientOnly>
       </span>
       {{ title }}
@@ -29,7 +29,7 @@
         <div class="item" v-for="(item, index) in items" :key="index">
           <div class="tumbox">
             <div class="gname">{{ item.name }}</div>
-            <img :src="item.src.href" :alt="item.alt" />
+            <img :src="item.src" :alt="item.alt" />
           </div>
         </div>
       </OwlCarousel>
@@ -40,8 +40,8 @@
 <script setup lang="ts">
 interface IMarquee {
   title?: string;
-  icon?: URL;
-  items: { name: string; src: URL; alt: string }[];
+  icon?: string;
+  items: { name: string; src: string; alt: string }[];
 }
 defineProps<IMarquee>();
 </script>

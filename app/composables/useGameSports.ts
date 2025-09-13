@@ -12,10 +12,10 @@ export default function useGameSports() {
     "S-SPORTS LCS",
   ];
   const sports = Array.from({ length: 10 }, (_, i) => {
-    const img = `../assets/images/marquee/sports/sport-${i + 1}.png`;
+    const img = `/marquee/sports/sport-${i + 1}.png`;
     return {
       name: sportsName[i] || "",
-      src: new URL(img, import.meta.url),
+      src: img,
       alt: `Sport ${i + 1}`,
     };
   });

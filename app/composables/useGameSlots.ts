@@ -13,13 +13,12 @@ export default function useGameSlots() {
     "S-SPORTS LCS",
   ];
 
-  const slots = Array.from({ length: 10 }, (_, i) => {
-    let img = `../assets/images/marquee/slots/slot-${i + 1}.jpg`;
-    if (png.includes(i))
-      img = `../assets/images/marquee/slots/slot-${i + 1}.png`;
+  const slots = Array.from({ length: 16 }, (_, i) => {
+    let img = `/marquee/slots/slot-${i + 1}.jpg`;
+    if (png.includes(i)) img = `/marquee/slots/slot-${i + 1}.png`;
     return {
       name: slotsName[i] || "",
-      src: new URL(img, import.meta.url),
+      src: img,
       alt: `Slots ${i + 1}`,
     };
   });

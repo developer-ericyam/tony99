@@ -28,23 +28,41 @@
 <script setup lang="ts">
 const { sports } = useGameSports();
 const { slots } = useGameSlots();
+const { casino } = useGameCasino();
+const { poker } = useGamePoker();
+const { battle } = useGameBattle();
+const { lottery } = useGameLottery();
 
 const items = [
   {
     title: "Sportsbook",
-    icon: new URL(
-      "@/assets/images/marquee/sports/hot-sport.png",
-      import.meta.url
-    ),
+    icon: "/marquee/sports/hot-sport.png",
     marqueeItems: sports,
   },
   {
     title: "Slots",
-    icon: new URL(
-      "@/assets/images/marquee/slots/hot-slots.png",
-      import.meta.url
-    ),
+    icon: "/marquee/slots/hot-slots.png",
     marqueeItems: slots,
+  },
+  {
+    title: "Live Casino",
+    icon: "marquee/casino/hot-casino.png",
+    marqueeItems: casino,
+  },
+  {
+    title: "Poker",
+    icon: "marquee/poker/hot-games.png",
+    marqueeItems: poker,
+  },
+  {
+    title: "Battle",
+    icon: "marquee/battle/hot-battle.png",
+    marqueeItems: battle,
+  },
+  {
+    title: "Lottery",
+    icon: "marquee/lottery/hot-lottery.png",
+    marqueeItems: lottery,
   },
 ];
 </script>
