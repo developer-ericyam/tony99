@@ -102,20 +102,92 @@
           </ul>
         </div>
         <div class="logreg-wrap">
-          <button class="login-btn" data-toggle="modal" data-target="#login">
-            Login
-          </button>
+          <button class="login-btn" @click="open = true">Login</button>
           <button
             class="register-btn"
-            onclick="location.href='/en/registration'"
+            @click="router.push(`/${locale}/registration`)"
           >
             Register
           </button>
         </div>
       </div>
     </div>
+    <a-modal
+      v-model:open="open"
+      class="login-modal"
+      :width="600"
+      transition-name=""
+      :footer="null"
+      style="top: 30px"
+    >
+      <div class="login-logo">
+        <img src="~/assets/images/logo-login.png" alt="logo" />
+      </div>
+      <form @submit.prevent="onSubmitHandler">
+        <div class="input-wrapper">
+          <input
+            v-model="username"
+            id="username"
+            required
+            placeholder="Username"
+            maxlength="15"
+          />
+        </div>
+        <div class="input-wrapper">
+          <input
+            v-model="password"
+            id="password"
+            type="password"
+            required
+            placeholder="Password"
+          />
+        </div>
+        <button type="submit">LOGIN</button>
+      </form>
+      <div class="regnow-text">
+        Do not have an account yet? Click
+        <NuxtLinkLocale to="/registration" @click="open = false"
+          >here</NuxtLinkLocale
+        >
+        to register now!
+      </div>
+      <div class="reg-line login"></div>
+      <div class="note-issues">
+        If you encounter any issues while logging in, <br />Please contact our
+        <span class="greentext">Customer Service</span> for further assistance
+      </div>
+    </a-modal>
   </div>
 </template>
+
+<script setup lang="ts">
+const router = useRouter();
+const { locale } = useI18n();
+
+const open = ref(false);
+const username = ref("");
+const password = ref("");
+
+const onSubmitHandler = async (e: Event) => {
+  e.preventDefault();
+  // Handle login logic here
+  try {
+    const res = await $fetch("/api/login", {
+      method: "POST",
+      body: {
+        username: username.value,
+        password: password.value,
+      },
+    });
+    const json = JSON.parse(res);
+    if (json.Login === 0) window.location.href = json.Redirect;
+    else alert(json.Text || "Login failed, please try again.");
+  } catch (err) {
+    console.log(err);
+    alert("An error occurred while logging in.");
+  }
+};
+</script>
 
 <style scoped lang="scss">
 .header-container {
@@ -193,6 +265,125 @@
         color: #ffffff;
         font-size: 14px;
         padding: 2px 10px;
+      }
+    }
+  }
+}
+</style>
+
+<style lang="scss">
+.dropbtn {
+  background: transparent;
+}
+
+.login-modal {
+  .ant-modal-content {
+    background: linear-gradient(45deg, #a97f2a, #312503);
+    border: none;
+    color: #d3d3d3;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    border-radius: 6px;
+    outline: 0;
+
+    svg {
+      fill: #fff;
+    }
+
+    .login-logo {
+      padding-bottom: 30px;
+      img {
+        max-height: unset;
+        width: 60%;
+      }
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      max-width: 400px;
+      margin: 0 auto;
+      width: 100%;
+      padding-bottom: 40px;
+
+      .input-wrapper {
+        display: flex;
+        position: relative;
+        input {
+          flex: 1;
+          border: 0;
+          font-size: 15px;
+          padding: 5px 50px;
+          background: #323232;
+          border-bottom: 1px solid #c39900;
+          border-radius: 8px;
+          color: #fff;
+          margin-top: 15px;
+          margin-bottom: 20px;
+          outline: none;
+          height: 29px;
+
+          &::placeholder {
+            color: #cbcbcb;
+          }
+        }
+
+        #username {
+          background-image: url(~/assets/icons/username.webp);
+          background-size: 18px;
+          background-repeat: no-repeat;
+          background-position: left 16px center;
+        }
+
+        #password {
+          background-image: url(~/assets/icons/password.webp);
+          background-size: 18px;
+          background-repeat: no-repeat;
+          background-position: left 16px center;
+        }
+      }
+
+      button {
+        cursor: pointer;
+        background: #6b5602;
+        border: none;
+        border-radius: 45px;
+        color: #fff;
+        font-size: 18px;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-top: 15px;
+        margin-bottom: 20px;
+        min-width: 220px;
+        height: 40px;
+        padding: 2px 15px;
+        transition: 0.2s;
+      }
+    }
+
+    .regnow-text {
+      font-size: 16px;
+      a {
+        color: #c49c4d;
+      }
+    }
+
+    .reg-line.login {
+      background: #f2e890;
+      height: 1px;
+      width: 100%;
+      margin: 20px 0 20px;
+    }
+
+    .note-issues {
+      font-size: 13px;
+      max-width: 400px;
+      margin: 0 auto;
+      line-height: 15.5px;
+      .greentext,
+      .agree-text a {
+        color: #ffffff;
       }
     }
   }

@@ -14,6 +14,7 @@
     "@nuxt/icon": "2.0.0",
     "@nuxt/image": "1.11.0",
     "@nuxtjs/i18n": "10.0.6",
+    "@vee-validate/nuxt": "^4.15.1",
     "@vesp/nuxt-fontawesome": "2.0.0",
     "ant-design-vue": ">=4",
     "jquery": "^3.7.1",

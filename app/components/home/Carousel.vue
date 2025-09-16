@@ -30,6 +30,7 @@ const items = [
     position: relative;
     z-index: 0;
     width: 100%;
+    height: 275px;
     margin: auto;
     outline: none;
   }

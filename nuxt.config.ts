@@ -9,6 +9,7 @@ export default defineNuxtConfig({
     "@ant-design-vue/nuxt",
     "@nuxtjs/i18n",
     "@vesp/nuxt-fontawesome",
+    "@vee-validate/nuxt",
   ],
   app: {
     head: {
