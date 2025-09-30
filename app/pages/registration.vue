@@ -1,6 +1,7 @@
 <template>
   <div id="register-page">
     <div class="r-left">
+      <div class="regtitle">REGISTRATION</div>
       <form
         id="registerform"
         class="registerform"
@@ -289,6 +290,10 @@ onMounted(() => {
   .r-left {
     padding: 20px;
     font-size: 15px;
+
+    .regtitle {
+      display: none;
+    }
 
     dl {
       margin-top: 0;

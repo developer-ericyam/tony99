@@ -57,7 +57,7 @@
 <style scoped lang="scss">
 .footer-sec {
   position: relative;
-  padding: 15px 0 10px;
+  padding: 15px 20px 10px;
   color: #aaa;
 
   .footer-btm-wrapper {

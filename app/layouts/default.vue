@@ -45,8 +45,8 @@
         <div class="main-content">
           <slot />
         </div>
+        <AppFooter />
       </a-layout-content>
-      <AppFooter />
     </a-layout>
   </div>
 </template>
@@ -125,9 +125,9 @@ const menus = [
   .sider {
     background: #000000ff;
     overflow: auto;
-    height: 100dvh;
+    // height: 100dvh;
     position: fixed;
-    z-index: 1;
+    z-index: 2;
     left: 0;
     top: 0;
     bottom: 0;
@@ -226,6 +226,7 @@ const menus = [
     }
 
     .ant-layout-content {
+      min-width: 1200px;
       max-width: 1550px;
 
       .main-content {

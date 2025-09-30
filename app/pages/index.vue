@@ -46,22 +46,22 @@ const items = [
   },
   {
     title: "Live Casino",
-    icon: "marquee/casino/hot-casino.png",
+    icon: "/marquee/casino/hot-casino.png",
     marqueeItems: casino,
   },
   {
     title: "Poker",
-    icon: "marquee/poker/hot-games.png",
+    icon: "/marquee/poker/hot-games.png",
     marqueeItems: poker,
   },
   {
     title: "Battle",
-    icon: "marquee/battle/hot-battle.png",
+    icon: "/marquee/battle/hot-battle.png",
     marqueeItems: battle,
   },
   {
     title: "Lottery",
-    icon: "marquee/lottery/hot-lottery.png",
+    icon: "/marquee/lottery/hot-lottery.png",
     marqueeItems: lottery,
   },
 ];

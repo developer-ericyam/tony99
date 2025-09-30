@@ -200,6 +200,7 @@ const onSubmitHandler = async (e: Event) => {
   .header-left-wrapper {
     .logo {
       img {
+        width: 100%;
         max-height: 55px;
       }
     }
@@ -238,6 +239,10 @@ const onSubmitHandler = async (e: Event) => {
             }
           }
         }
+      }
+
+      .logreg-wrap {
+        display: flex;
       }
     }
 
