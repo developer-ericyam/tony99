@@ -18,19 +18,10 @@
                 class="ol-href"
               >
                 <img
-                  src="~/assets/images/toolbar/download.png"
+                  src="~/assets/images/toolbar/fastgames.gif"
                   alt="TelegramBot"
                 />
                 ᴛᴇʟᴇɢʀᴀᴍ ʙᴏᴛ
-              </a>
-            </li>
-            <li>
-              <a href="http://tony88m.com" target="_blank" class="ol-href">
-                <img
-                  src="~/assets/images/toolbar/gif-movie.gif"
-                  alt="Free Watch Movie"
-                />
-                ꜰʀᴇᴇ ᴍᴏᴠɪᴇ
               </a>
             </li>
             <li>
@@ -47,7 +38,9 @@
                 ><img
                   src="~/assets/images/toolbar/currency-icon.webp"
                   alt="Currency USDT to MYR"
-                />ᴜꜱᴅᴛ 𝟣 = ᴍʏʀ 𝟦.𝟥𝟧, ꜱɢᴅ 𝟣.𝟥𝟤, ᴀᴜᴅ 𝟣.𝟨𝟢</a
+                />ᴜꜱᴅᴛ 𝟣 = ᴍʏʀ {{ usd?.myr.toFixed(2) || "-" }}, ꜱɢᴅ
+                {{ usd?.sgd.toFixed(2) || "-" }}, ᴀᴜᴅ
+                {{ usd?.aud.toFixed(2) || "-" }}</a
               >
             </li>
             <li>
@@ -167,6 +160,14 @@ const { locale } = useI18n();
 const open = ref(false);
 const username = ref("");
 const password = ref("");
+const usd = ref();
+
+const fetchCurrency = async () => {
+  const url =
+    "https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/usd.json";
+  const res = await $fetch<{ date: string; usd: Record<string, number> }>(url);
+  usd.value = res.usd;
+};
 
 const onSubmitHandler = async (e: Event) => {
   e.preventDefault();
@@ -187,6 +188,8 @@ const onSubmitHandler = async (e: Event) => {
     alert("An error occurred while logging in.");
   }
 };
+
+fetchCurrency();
 </script>
 
 <style scoped lang="scss">

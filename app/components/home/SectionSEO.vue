@@ -1,5 +1,7 @@
 <template>
-  <div class="seo-container">asdadasdsa</div>
+  <div class="seo-container">
+    <ContentWordpress slug="homepage" />
+  </div>
 </template>
 
 <script setup lang="ts"></script>

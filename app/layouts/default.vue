@@ -24,6 +24,7 @@
             class="menu-item"
             v-for="item in menu.items"
             :key="item.key"
+            @click="onClickHandler(item)"
           >
             <img class="icon" :src="item.icon" />
             <span class="nav-text">{{ item.text }}</span>
@@ -71,6 +72,8 @@ import CloudIcon from "~/assets/icons/menu-cloud.png";
 import ResponsibleIcon from "~/assets/icons/menu-responsible.png";
 import TermIcon from "~/assets/icons/menu-terms.png";
 
+const router = useRouter();
+const localePath = useLocalePath();
 const showNoticedownload = ref(true);
 const collapsed = ref(false);
 const selectedKeys = ref<string[]>(["1"]);
@@ -78,46 +81,114 @@ const selectedKeys = ref<string[]>(["1"]);
 const menus = [
   {
     title: "",
-    items: [{ key: "1", icon: HomeIcon, text: "Home" }],
+    items: [{ key: "1", icon: HomeIcon, text: "Home", href: "/" }],
   },
   {
     title: "Popular Games",
     items: [
-      { key: "2", icon: SlotsIcon, text: "Slots" },
-      { key: "3", icon: CasinoIcon, text: "Live Casino" },
-      { key: "4", icon: SportsIcon, text: "Sportsbook" },
-      { key: "5", icon: Gaming2Icon, text: "Poker" },
-      { key: "6", icon: FishingIcon, text: "Battle" },
-      { key: "7", icon: LotteryIcon, text: "Lottery" },
+      { key: "2", icon: SlotsIcon, text: "Slots", href: "/games" },
+      { key: "3", icon: CasinoIcon, text: "Live Casino", href: "/livecasino" },
+      { key: "4", icon: SportsIcon, text: "Sportsbook", href: "/sportsbook" },
+      { key: "5", icon: Gaming2Icon, text: "Poker", href: "/poker" },
+      { key: "6", icon: FishingIcon, text: "Battle", href: "/battle" },
+      { key: "7", icon: LotteryIcon, text: "Lottery", href: "/lottery" },
     ],
   },
   {
     title: "Tournaments",
     items: [
-      { key: "8", icon: RankigIcon, text: "Ranking Hall" },
-      { key: "9", icon: PerdanaIcon, text: "JP6D Prize" },
-      { key: "10", icon: FightingIcon, text: "Challenge" },
-      { key: "11", icon: MVPIcon, text: "MVP Leaderboard" },
+      {
+        key: "8",
+        icon: RankigIcon,
+        text: "Ranking Hall",
+        href: "https://tony99.com/en/hall_of_ranking-new",
+        external: true,
+      },
+      {
+        key: "9",
+        icon: PerdanaIcon,
+        text: "JP6D Prize",
+        href: "https://tony99.com/en/MEGA_6D",
+        external: true,
+      },
+      {
+        key: "10",
+        icon: FightingIcon,
+        text: "Challenge",
+        href: "https://tony99.com/en/Challenge",
+        external: true,
+      },
+      // { key: "11", icon: MVPIcon, text: "MVP Leaderboard" },
     ],
   },
   {
     title: "",
     items: [
-      { key: "12", icon: VIPIcon, text: "VIP" },
-      { key: "13", icon: RedeemIcon, text: "Redeem Mall" },
-      { key: "14", icon: PromoIcon, text: "Promotions" },
+      {
+        key: "12",
+        icon: VIPIcon,
+        text: "VIP",
+        href: "https://tony99.com/en/VIP",
+        external: true,
+      },
+      {
+        key: "13",
+        icon: RedeemIcon,
+        text: "Redeem Mall",
+        href: "https://tony99.com/en/prod",
+        external: true,
+      },
+      {
+        key: "14",
+        icon: PromoIcon,
+        text: "Promotions",
+        href: "https://tony99.com/en/promotion",
+        external: true,
+      },
     ],
   },
   {
     title: "More",
     items: [
-      { key: "15", icon: SupportIcon, text: "Customer Support" },
-      { key: "16", icon: CloudIcon, text: "F6Notes App" },
-      { key: "17", icon: ResponsibleIcon, text: "Responsible Gambling" },
-      { key: "18", icon: TermIcon, text: "Terms" },
+      {
+        key: "15",
+        icon: SupportIcon,
+        text: "Customer Support",
+        href: "https://tony99.com/en/contact-us",
+        external: true,
+      },
+      {
+        key: "16",
+        icon: CloudIcon,
+        text: "F6Notes App",
+        href: "https://tony99.com/en/download",
+        external: true,
+      },
+      {
+        key: "17",
+        icon: ResponsibleIcon,
+        text: "Responsible Gambling",
+        href: "https://tony99.com/en/Responsible_Gambling",
+        external: true,
+      },
+      {
+        key: "18",
+        icon: TermIcon,
+        text: "Terms",
+        href: "https://tony99.com/en/terms",
+        external: true,
+      },
     ],
   },
 ];
+
+function onClickHandler(item: any) {
+  if (item.href) {
+    if (item.external)
+      navigateTo(item.href, { external: true, open: { target: "_blank" } });
+    else router.push(localePath(item.href));
+  }
+}
 </script>
 
 <style scoped lang="scss">
@@ -159,6 +230,12 @@ const menus = [
     border-inline-end: none !important;
     border-radius: 7px;
     padding: 4px 0;
+
+    &.ant-menu-inline-collapsed {
+      .menu-title {
+        display: none;
+      }
+    }
 
     .menu-title {
       border-bottom: 1px solid #ffffff57;
