@@ -1,7 +1,7 @@
 <template>
   <div v-if="item" class="grid">
     <div class="banner-wrapper">
-      <img :src="`/images/game/${item.banner}`" class="banner" />
+      <img :src="`/images/game${item.banner}`" class="banner" />
       <div class="title">{{ item.title }}</div>
     </div>
     <div class="game-grid">
