@@ -23,7 +23,7 @@ export default defineEventHandler(async (event) => {
     "--header",
     "content-type: application/x-www-form-urlencoded; charset=UTF-8",
     "--header",
-    "Cookie: PHPSESSID=218edb1614d4416737c83d8b85656141",
+    "Cookie: PHPSESSID=473586ccfa0fffc52f124032ecfa2b5d",
     "--data",
     `VarifyCode=${varifyCode}&UserName=${username}&Password=${password}&Fullname=${fullName}&Com=tony88&Email=&Mobile=${mobile}&Gender=1&DoB=2018-01-01&BankName=+&BankBranch=+&BankAccountNo=+&AccountHolderName=+&Currency=${currency}&PromotionCode=${
       promotionCode ? promotionCode : ""

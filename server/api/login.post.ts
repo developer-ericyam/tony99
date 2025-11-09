@@ -12,7 +12,7 @@ export default defineEventHandler(async (event) => {
     'https://tony99sgd.com/postprocv2.php',
     '--header', 'accept: */*',
     '--header', 'content-type: application/x-www-form-urlencoded; charset=UTF-8',
-    '--header', 'Cookie: PHPSESSID=218edb1614d4416737c83d8b85656141',
+    '--header', 'Cookie: PHPSESSID=473586ccfa0fffc52f124032ecfa2b5d',
     '--data-urlencode', `Username=${username}`,
     '--data-urlencode', `Password=${password}`,
     '--data-urlencode', `Com=${com}`,

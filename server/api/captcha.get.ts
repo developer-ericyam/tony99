@@ -1,9 +1,9 @@
 export default defineEventHandler(async (event) => {
   const res = await $fetch.raw(
-    "https://uw99my.com/inc/securitycode.php?width=100&height=30&characters=4",
+    "https://tony99sgd.com/inc/securitycode.php?width=100&height=30&characters=4",
     {
       headers: {
-        Cookie: "PHPSESSID=218edb1614d4416737c83d8b85656141",
+        Cookie: "PHPSESSID=473586ccfa0fffc52f124032ecfa2b5d",
         // other headers you need
       },
       responseType: "arrayBuffer", // keep binary data intact

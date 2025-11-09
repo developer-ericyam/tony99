@@ -13,7 +13,13 @@ export default defineNuxtConfig({
   ],
   app: {
     head: {
-      link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.png" }],
+      link: [
+        { rel: "icon", type: "image/x-icon", href: "/favicon.png" },
+        {
+          rel: "stylesheet",
+          href: "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css",
+        },
+      ],
     },
   },
   i18n: {
