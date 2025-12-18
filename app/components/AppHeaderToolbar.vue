@@ -98,7 +98,7 @@
           <button class="login-btn" @click="open = true">Login</button>
           <button
             class="register-btn"
-            @click="router.push(`/${locale}/registration`)"
+            @click="router.push(`/${locale}/registration/941668`)"
           >
             Register
           </button>
